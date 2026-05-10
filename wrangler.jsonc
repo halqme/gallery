@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gallery",
+  "compatibility_date": "2026-05-09",
+  "assets": {
+    "not_found_handling": "404-page",
+    "directory": "dist",
+  },
+  "compatibility_flags": ["nodejs_compat"],
+  "route": {
+    "zone_name": "0w0.foo",
+    "pattern": "apps.0w0.foo/*",
+  },
+  "placement": { "mode": "smart" },
+}

@@ -1,0 +1,60 @@
+---
+const apps: {
+  name: string;
+  description: string;
+  url: string;
+  image: string | undefined;
+}[] = [
+  {
+    name: "lotAikido",
+    description: "合気道の技をランダムに生成するツール",
+    url: "https://apps.0w0.foo/lotAikido",
+    image: undefined,
+  },
+  {
+    name: "browserfetch",
+    description: "fastfetchのブラウザバージョン",
+    url: "https://browserfetch.0w0.foo",
+    image: undefined,
+  },
+];
+---
+
+<section class="section" aria-labelledby="gallery-title">
+  <h2
+    id="gallery-title"
+    class="text-headline mb-8 flex items-center gap-3 select-none"
+  >
+    <span class="i-lucide:layout-grid"></span>
+    Apps
+  </h2>
+  <div class="grid-responsive">
+    {
+      apps.map((app) => (
+        <a
+          class="card-interactive card-content group flex items-center gap-4 p-4"
+          href={app.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="flex-shrink-0 w-12 h-12 rounded-xs flex items-center justify-center overflow-hidden bg-neutral-200/50 dark:bg-neutral-700/50 border border-base">
+            {app.image ? (
+              <img src={app.image} alt="" class="w-full h-full object-cover" />
+            ) : (
+              <span class="text-xl font-bold text-subtle leading-none">
+                {app.name.charAt(0).toUpperCase()}
+              </span>
+            )}
+          </div>
+          <div class="flex-1 min-w-0">
+            <h2 class="text-subhead mb-0.5 flex items-center justify-between">
+              {app.name}
+              <span class="i-lucide:external-link text-sm opacity-50 hidden group-hover:block" />
+            </h2>
+            <p class="text-body text-sm">{app.description}</p>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>
